@@ -1,0 +1,10 @@
+require 'plugins'
+require 'settings'
+require 'keymap'
+
+require 'impatient'
+require 'plugin_settings.telescope'
+require 'plugin_settings.treesitter'
+require 'plugin_settings.lsp'
+require 'plugin_settings.cmp'
+require 'plugin_settings.ui'
