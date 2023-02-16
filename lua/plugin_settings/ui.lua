@@ -140,16 +140,16 @@ gitsigns.setup {
     end, { expr = true, desc = 'Previous hunk' })
 
     -- Actions
-    map('n', '<leader>hq', gitsigns.setqflist, { desc = 'Send hunks to the quickfix list' })
-    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', { desc = 'Stage hunk' })
-    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset hunk' })
-    map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'Stage buffer' })
-    map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'Reset buffer' })
-    map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'Undo stage hunk' })
-    map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
-    map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end, { desc = 'Open full blame' })
-    map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Show diff' })
-    map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = 'Show diff of the last commit' })
+    map('n', '<leader>gq', gitsigns.setqflist, { desc = 'Send hunks to the quickfix list' })
+    map({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>', { desc = 'Stage hunk' })
+    map({ 'n', 'v' }, '<leader>gr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset hunk' })
+    map('n', '<leader>gS', gitsigns.stage_buffer, { desc = 'Stage buffer' })
+    map('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'Reset buffer' })
+    map('n', '<leader>gu', gitsigns.undo_stage_hunk, { desc = 'Undo stage hunk' })
+    map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
+    map('n', '<leader>gb', function() gitsigns.blame_line { full = true } end, { desc = 'Git blame' })
+    map('n', '<leader>gd', gitsigns.diffthis, { desc = 'Git diff' })
+    map('n', '<leader>gD', function() gitsigns.diffthis('~') end, { desc = 'Show diff of the last commit' })
 
     -- Text object
     map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

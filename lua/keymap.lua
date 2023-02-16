@@ -32,11 +32,13 @@ vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<CR>')
 
 -- Telescope
 local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>p', telescope.find_files)
-vim.keymap.set('n', '<leader>rg', telescope.live_grep)
-vim.keymap.set('n', '<leader><space>', telescope.buffers)
-vim.keymap.set('n', '<leader>fh', telescope.help_tags)
-vim.keymap.set('n', '<leader>/', telescope.current_buffer_fuzzy_find)
+vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Find files' })
+vim.keymap.set('n', '<leader>f', telescope.live_grep, { desc = 'Grep' })
+vim.keymap.set('n', '<leader><space>', telescope.buffers, { desc = 'List buffers' })
+vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = '[H]elp tags' })
+vim.keymap.set('n', '<leader>k', telescope.keymaps, { desc = '[K]eymaps' })
+vim.keymap.set('n', '<leader>/', telescope.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
+
 
 -- Bufferline
 local bufferline = require('bufferline')
