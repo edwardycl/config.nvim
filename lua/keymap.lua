@@ -69,6 +69,9 @@ vim.keymap.set('n', '[t', function() trouble.previous({ skip_groups = true, jump
 vim.keymap.set('n', ']]t', function() trouble.last({ skip_groups = true, jump = true }) end)
 vim.keymap.set('n', '[[t', function() trouble.first({ skip_groups = true, jump = true }) end)
 
+-- Preview diagnostic
+vim.keymap.set('n', '<leader>dp', vim.diagnostic.open_float)
+
 -- Highlight on yank
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

@@ -51,6 +51,14 @@ local servers = {
         check = {
           command = 'clippy',
         },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
       },
     },
   },
@@ -72,6 +80,8 @@ local servers = {
   yamlls = {},
   bashls = {},
   dockerls = {},
+  svelte = {},
+  tailwindcss = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

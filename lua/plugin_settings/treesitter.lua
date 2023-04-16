@@ -20,5 +20,6 @@ require('nvim-treesitter.configs').setup {
     'help',
     'bash',
     'dockerfile',
+    'solidity',
   }
 }

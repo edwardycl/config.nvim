@@ -40,10 +40,9 @@ local function open_nvim_tree(data)
   -- change to the directory
   if directory then
     vim.cmd.cd(data.file)
+    -- open the tree
+    require("nvim-tree.api").tree.open()
   end
-
-  -- open the tree
-  require("nvim-tree.api").tree.open()
 end
 
 vim.api.nvim_create_autocmd({ 'VimEnter' }, { callback = open_nvim_tree })
@@ -159,6 +158,8 @@ gitsigns.setup {
 require('foldsigns').setup()
 
 require('lsp-colors').setup()
+
+require('todo-comments').setup()
 
 -- Indent guidelines
 require('indent_blankline').setup {

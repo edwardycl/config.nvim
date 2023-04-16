@@ -97,11 +97,14 @@ return require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'folke/lsp-colors.nvim'
+  use 'folke/todo-comments.nvim'
 
   -- Git
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
   use 'lewis6991/foldsigns.nvim'
+
+  use 'github/copilot.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
