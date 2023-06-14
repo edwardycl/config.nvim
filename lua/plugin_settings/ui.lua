@@ -19,6 +19,11 @@ require('nvim-tree').setup {
     indent_markers = {
       enable = true,
     },
+    icons = {
+      glyphs = {
+        bookmark = ""
+      }
+    }
   },
   actions = {
     expand_all = {
@@ -81,6 +86,7 @@ require('bufferline').setup {
     mode = 'buffers',
     numbers = 'ordinal',
     diagnostics = 'nvim_lsp',
+    buffer_close_icon = '',
     offsets = {
       {
         filetype = 'NvimTree',
@@ -98,10 +104,12 @@ require('trouble').setup {
 
 -- Terminal
 require('toggleterm').setup {
+  size = 20,
   open_mapping = '<C-`>',
   direction = 'float',
   float_opts = {
     border = 'curved',
+    winblend = 30,
   },
 }
 
@@ -155,7 +163,7 @@ gitsigns.setup {
   end
 }
 
-require('foldsigns').setup()
+require('foldsigns').setup {}
 
 require('lsp-colors').setup()
 

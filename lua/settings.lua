@@ -32,10 +32,10 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Diagnostic Signs
 local signs = {
-    Error = " ",
-    Warn = " ",
-    Hint = " ",
-    Info = " "
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = ""
 }
 
 for type, icon in pairs(signs) do

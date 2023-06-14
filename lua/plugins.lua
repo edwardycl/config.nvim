@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
       'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+      { 'j-hui/fidget.nvim', tag = 'legacy' },
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -69,13 +69,13 @@ return require('packer').startup(function(use)
   }
 
   -- Better editor experience
-  use 'tpope/vim-surround' -- Keymaps for editing surroundings: '', "", (), {}
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
-  use 'tpope/vim-speeddating' -- Use CTRL-A/CTRL-X to increment dates, times, and more
-  use 'tpope/vim-repeat' -- Enable repeating supported plugin maps with "."
+  use 'tpope/vim-surround'                  -- Keymaps for editing surroundings: '', "", (), {}
+  use 'tpope/vim-sleuth'                    -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-speeddating'               -- Use CTRL-A/CTRL-X to increment dates, times, and more
+  use 'tpope/vim-repeat'                    -- Enable repeating supported plugin maps with "."
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'wellle/targets.vim' -- Add various text object selection mappings
+  use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
+  use 'wellle/targets.vim'                  -- Add various text object selection mappings
   -- use 'mbbill/undotree'
 
   -- Better UI
@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons',
     },
   }
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'navarasu/onedark.nvim'     -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use {
     'akinsho/bufferline.nvim', tag = 'v3.*',
