@@ -27,6 +27,16 @@ return {
               procMacro = {
                 enable = true,
               },
+              rustc = {
+                source = "discover",
+              },
+              workspace = {
+                symbol = {
+                  search = {
+                    scope = "workspace_and_dependencies",
+                  },
+                },
+              },
             },
           },
         },

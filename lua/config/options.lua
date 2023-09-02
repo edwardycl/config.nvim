@@ -11,3 +11,17 @@ opt.breakindent = true
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
+
+-- Clipboard
+-- TODO: add clipboard support
+opt.clipboard = ""
+
+vim.filetype.add({
+  filename = {
+    [".eslintignore"] = "gitignore",
+    [".prettierignore"] = "gitignore",
+  },
+  pattern = {
+    [".*%.lalrpop"] = "lalrpop",
+  },
+})
