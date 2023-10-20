@@ -6,7 +6,7 @@ return {
     opts = {
       label = {
         -- show the label after the match
-        after = false, ---@type boolean|number[]
+        after = true, ---@type boolean|number[]
         -- show the label before the match
         before = true, ---@type boolean|number[]
         -- Enable this to use rainbow colors to highlight labels
@@ -93,36 +93,19 @@ return {
       source_selector = {
         winbar = true,
         sources = {
-          { source = "filesystem", display_name = "󰉓 Files" },
-          { source = "buffers", display_name = " Bufs" },
-          { source = "git_status", display_name = "󰊢 Git" },
-          { source = "document_symbols", display_name = "󰆧 Syms" },
+          { source = "filesystem" },
+          { source = "buffers" },
+          { source = "document_symbols" },
         },
         show_separator_on_edge = true,
       },
       default_component_configs = {
-        icon = {
-          folder_empty = "",
-          folder_empty_open = "",
-        },
         name = {
           highlight_opened_files = true,
-        },
-        git_status = {
-          symbols = {
-            renamed = "󰁕",
-            unstaged = "󰄱",
-          },
-        },
-        diagnostics = {
-          symbols = {
-            hint = "",
-          },
         },
       },
       window = {
         mappings = {
-          ["<C-c>"] = "revert_preview",
           ["t"] = "toggle_node",
           ["Z"] = "expand_all_nodes",
         },
@@ -134,6 +117,7 @@ return {
           },
           always_show = {
             ".gitignore",
+            ".github",
           },
           never_show = {
             ".DS_Store",
@@ -141,42 +125,19 @@ return {
         },
         follow_current_file = {
           enabled = true,
+          leave_dirs_open = true,
         },
       },
       buffers = {
         show_unloaded = true,
         window = {
           mappings = {
-            ["D"] = "buffer_delete",
+            ["<C-q>"] = "buffer_delete",
           },
         },
       },
       document_symbols = {
         follow_cursor = true,
-        kinds = {
-          File = { icon = "󰈙", hl = "Tag" },
-          Namespace = { icon = "󰌗", hl = "Include" },
-          Package = { icon = "󰏖", hl = "Label" },
-          Class = { icon = "󰌗", hl = "Include" },
-          Method = { icon = "󰊕", hl = "Function" },
-          Property = { icon = "󰆧", hl = "@property" },
-          Enum = { icon = "󰒻", hl = "@number" },
-          Interface = { icon = "", hl = "Type" },
-          Function = { icon = "󰊕", hl = "Function" },
-          Constant = { icon = "", hl = "Constant" },
-          String = { icon = "󰀬", hl = "String" },
-          Number = { icon = "󰎠", hl = "Number" },
-          Boolean = { icon = "", hl = "Boolean" },
-          Array = { icon = "󰅪", hl = "Type" },
-          Object = { icon = "󰅩", hl = "Type" },
-          Key = { icon = "󰌋", hl = "" },
-          Null = { icon = "", hl = "Constant" },
-          Struct = { icon = "󰌗", hl = "Type" },
-          Event = { icon = "", hl = "Constant" },
-          Operator = { icon = "󰆕", hl = "Operator" },
-          TypeParameter = { icon = "", hl = "Type" },
-          StaticMethod = { icon = "󰘧", hl = "Function" },
-        },
       },
     },
   },

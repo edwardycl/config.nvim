@@ -13,7 +13,6 @@ opt.backup = false
 opt.undofile = true
 
 -- Clipboard
--- TODO: add clipboard support
 opt.clipboard = ""
 
 vim.filetype.add({
