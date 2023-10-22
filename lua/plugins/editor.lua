@@ -87,6 +87,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
+      enable_normal_mode_for_inputs = true,
       auto_clean_after_session_restore = true,
       popup_border_style = "rounded",
       open_files_do_not_replace_types = { "terminal", "trouble", "qf", "help" },
@@ -97,7 +98,6 @@ return {
           { source = "buffers" },
           { source = "document_symbols" },
         },
-        show_separator_on_edge = true,
       },
       default_component_configs = {
         name = {
@@ -108,6 +108,7 @@ return {
         mappings = {
           ["t"] = "toggle_node",
           ["Z"] = "expand_all_nodes",
+          ["<C-c>"] = "revert_preview",
         },
       },
       filesystem = {
