@@ -24,3 +24,6 @@ vim.keymap.del("t", "<C-h>")
 vim.keymap.del("t", "<C-j>")
 vim.keymap.del("t", "<C-k>")
 vim.keymap.del("t", "<C-l>")
+
+vim.keymap.del({ "n", "i", "v" }, "<M-j>")
+vim.keymap.del({ "n", "i", "v" }, "<M-k>")
