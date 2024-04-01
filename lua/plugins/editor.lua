@@ -87,7 +87,6 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
-      enable_normal_mode_for_inputs = true,
       auto_clean_after_session_restore = true,
       popup_border_style = "rounded",
       open_files_do_not_replace_types = { "terminal", "trouble", "qf", "help" },
@@ -119,6 +118,7 @@ return {
           always_show = {
             ".gitignore",
             ".github",
+            ".streamlit",
           },
           never_show = {
             ".DS_Store",
@@ -139,6 +139,16 @@ return {
       },
       document_symbols = {
         follow_cursor = true,
+      },
+      event_handlers = {
+        {
+          event = "neo_tree_popup_input_ready",
+          ---@param args { bufnr: integer, winid: integer }
+          handler = function(args)
+            -- vim.cmd("stopinsert")
+            vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
+          end,
+        },
       },
     },
   },
