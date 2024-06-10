@@ -152,4 +152,53 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        preview = {
+          mime_hook = function(filepath, bufnr, opts)
+            local is_image = function(fp)
+              -- FIXME: update this list
+              local image_extensions =
+                { "bmp", "exr", "gif", "hdr", "ico", "jpg", "jpeg", "pbm", "png", "tiff", "webp" }
+              local split_path = vim.split(fp:lower(), ".", { plain = true })
+              local extension = split_path[#split_path]
+              return vim.tbl_contains(image_extensions, extension)
+            end
+            if is_image(filepath) then
+              local term = vim.api.nvim_open_term(bufnr, {})
+              local function send_output(_, data, _)
+                for _, d in ipairs(data) do
+                  vim.api.nvim_chan_send(term, d .. "\r\n")
+                end
+              end
+              -- Install: brew install chafa
+              vim.fn.jobstart({
+                "chafa",
+                -- "-f",
+                -- "sixel",
+                "--animate",
+                "off",
+                filepath,
+              }, {
+                on_stdout = send_output,
+                stdout_buffered = true,
+              })
+            else
+              require("telescope.previewers.utils").set_preview_message(bufnr, opts.winid, "Binary cannot be previewed")
+            end
+          end,
+        },
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    config = function()
+      LazyVim.on_load("telescope.nvim", function()
+        require("telescope").load_extension("media_files")
+      end)
+    end,
+  },
 }
