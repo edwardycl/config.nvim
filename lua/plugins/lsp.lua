@@ -13,36 +13,6 @@ return {
       ---@type lspconfig.options
       servers = {
         clangd = {},
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              check = {
-                command = "clippy",
-              },
-              cargo = {
-                buildScripts = {
-                  enable = true,
-                },
-              },
-              rustfmt = {
-                extraArgs = { "+nightly" },
-              },
-              procMacro = {
-                enable = true,
-              },
-              rustc = {
-                source = "discover",
-              },
-              workspace = {
-                symbol = {
-                  search = {
-                    scope = "workspace_and_dependencies",
-                  },
-                },
-              },
-            },
-          },
-        },
         tsserver = {},
         pyright = {},
         lua_ls = {
@@ -70,6 +40,11 @@ return {
         svelte = {},
         tailwindcss = {},
       },
+      setup = {
+        rust_analyzer = function()
+          return true
+        end,
+      },
     },
   },
   -- formatters
@@ -77,6 +52,56 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {},
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters = {
+        markdownlint = {
+          args = { "--disable", "MD013", "--" },
+        },
+      },
+    },
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    opts = {
+      server = {
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "J", function()
+            vim.cmd.RustLsp("joinLines")
+          end, { desc = "Join Lines", buffer = bufnr })
+        end,
+        default_settings = {
+          ["rust-analyzer"] = {
+            check = {
+              command = "clippy",
+            },
+            cargo = {
+              buildScripts = {
+                enable = true,
+              },
+            },
+            rustfmt = {
+              extraArgs = { "+nightly" },
+            },
+            procMacro = {
+              enable = true,
+            },
+            rustc = {
+              source = "discover",
+            },
+            workspace = {
+              symbol = {
+                search = {
+                  scope = "workspace_and_dependencies",
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 }

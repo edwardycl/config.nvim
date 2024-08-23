@@ -26,3 +26,21 @@ vim.filetype.add({
 })
 
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
+
+opt.spelllang = { "en_us", "cjk" }
+
+-- Set indentation based on filetype
+local set_indent = function(ft, spaces)
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = ft,
+    callback = function()
+      vim.bo.shiftwidth = spaces
+      vim.bo.tabstop = spaces
+    end,
+  })
+end
+
+set_indent("javascript,typescript", 2)
+set_indent("python", 4)
+set_indent("rust", 4)
+set_indent("dockerfile", 4)

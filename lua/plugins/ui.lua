@@ -27,16 +27,6 @@ return {
       },
     },
   },
-  {
-    "lukas-reineke/headlines.nvim",
-    opts = {
-      markdown = {
-        fat_headlines = false, -- TODO:
-        fat_headline_upper_string = "▄",
-        fat_headline_lower_string = "▀",
-      },
-    },
-  },
   -- Minimap
   -- {
   --   "echasnovski/mini.map",

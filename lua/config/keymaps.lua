@@ -27,3 +27,5 @@ vim.keymap.del("t", "<C-l>")
 
 vim.keymap.del({ "n", "i", "v" }, "<M-j>")
 vim.keymap.del({ "n", "i", "v" }, "<M-k>")
+
+vim.keymap.set("n", "<leader>cL", ":LspRestart<CR>", { desc = "LSP Restart" })

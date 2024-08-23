@@ -73,8 +73,28 @@ return {
       }
     end,
   },
-  -- Modify dates
-  { "tpope/vim-speeddating", event = "VeryLazy" },
+  -- Better increment/decrement
+  {
+    "monaqa/dial.nvim",
+    opts = function(_, opts)
+      local augend = require("dial.augend")
+
+      local group_ext = {
+        markdown = {
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.date.alias["%Y/%m/%d"],
+        },
+      }
+      for group, augends in pairs(group_ext) do
+        for _, aug in ipairs(augends) do
+          table.insert(opts.groups[group], aug)
+        end
+      end
+
+      return opts
+    end,
+  },
   -- Close buffers
   {
     "echasnovski/mini.bufremove",
@@ -99,6 +119,9 @@ return {
         },
       },
       default_component_configs = {
+        icon = {
+          folder_empty = "",
+        },
         name = {
           highlight_opened_files = true,
         },
