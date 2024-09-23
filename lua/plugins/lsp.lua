@@ -30,7 +30,7 @@ return {
             },
           },
         },
-        solidity = {},
+        solidity_ls = {},
         html = {},
         cssls = {},
         jsonls = {},
@@ -51,7 +51,14 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      formatters_by_ft = {},
+      formatters_by_ft = {
+        solidity = { "forge_fmt" },
+      },
+      formatters = {
+        forge_fmt = {
+          cwd = require("conform.util").root_file("foundry.toml"),
+        },
+      },
     },
   },
   {
@@ -61,6 +68,9 @@ return {
         markdownlint = {
           args = { "--disable", "MD013", "--" },
         },
+      },
+      linters_by_ft = {
+        -- solidity = { "solhint" },
       },
     },
   },

@@ -41,6 +41,8 @@ local set_indent = function(ft, spaces)
 end
 
 set_indent("javascript,typescript", 2)
+set_indent("markdown", 2)
 set_indent("python", 4)
 set_indent("rust", 4)
 set_indent("dockerfile", 4)
+set_indent("solidity", 4)
