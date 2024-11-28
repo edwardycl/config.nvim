@@ -20,10 +20,11 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Terminal keymaps
 vim.keymap.set("t", "<S-Space>", "<Space>")
 vim.keymap.set("t", "<S-BS>", "<BS>")
-vim.keymap.del("t", "<C-h>")
-vim.keymap.del("t", "<C-j>")
-vim.keymap.del("t", "<C-k>")
-vim.keymap.del("t", "<C-l>")
+-- TODO: terminal keymaps
+-- vim.keymap.del("t", "<C-h>")
+-- vim.keymap.del("t", "<C-j>")
+-- vim.keymap.del("t", "<C-k>")
+-- vim.keymap.del("t", "<C-l>")
 
 vim.keymap.del({ "n", "i", "v" }, "<M-j>")
 vim.keymap.del({ "n", "i", "v" }, "<M-k>")

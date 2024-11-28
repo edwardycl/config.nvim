@@ -20,12 +20,15 @@ return {
             Lua = {
               workspace = {
                 checkThirdParty = false,
+                library = {
+                  ["/Applications/Hammerspoon.app/Contents/Resources/extensions/hs"] = true,
+                },
               },
               completion = {
                 callSnippet = "Replace",
               },
               diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "hs" },
               },
             },
           },
@@ -52,7 +55,11 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        solidity = { "forge_fmt" },
+        solidity = { "prettier", "forge_fmt", stop_after_first = true },
+        javascript = { "prettier", "biome", stop_after_first = true },
+        typescript = { "prettier", "biome", stop_after_first = true },
+        javascriptreact = { "prettier", "biome", stop_after_first = true },
+        typescriptreact = { "prettier", "biome", stop_after_first = true },
       },
       formatters = {
         forge_fmt = {

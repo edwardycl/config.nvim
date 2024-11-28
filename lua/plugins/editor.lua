@@ -106,16 +106,20 @@ return {
   -- File explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
+    -- dependencies = {
+    --   "3rd/image.nvim",
+    -- },
     opts = {
       auto_clean_after_session_restore = true,
       popup_border_style = "rounded",
       open_files_do_not_replace_types = { "terminal", "trouble", "qf", "help" },
+      sources = { "filesystem", "buffers", "document_symbols" },
       source_selector = {
         winbar = true,
         sources = {
-          { source = "filesystem" },
-          { source = "buffers" },
-          { source = "document_symbols" },
+          { source = "filesystem", display_name = " 󰉓 Files " },
+          { source = "buffers", display_name = " 󰈚 Buffers " },
+          { source = "document_symbols", display_name = "  Symbols " },
         },
       },
       default_component_configs = {
@@ -131,6 +135,7 @@ return {
           ["t"] = "toggle_node",
           ["Z"] = "expand_all_nodes",
           ["<C-c>"] = "revert_preview",
+          -- ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
         },
       },
       filesystem = {
@@ -182,7 +187,6 @@ return {
         preview = {
           mime_hook = function(filepath, bufnr, opts)
             local is_image = function(fp)
-              -- FIXME: update this list
               local image_extensions =
                 { "bmp", "exr", "gif", "hdr", "ico", "jpg", "jpeg", "pbm", "png", "tiff", "webp" }
               local split_path = vim.split(fp:lower(), ".", { plain = true })
@@ -196,11 +200,8 @@ return {
                   vim.api.nvim_chan_send(term, d .. "\r\n")
                 end
               end
-              -- Install: brew install chafa
               vim.fn.jobstart({
                 "chafa",
-                -- "-f",
-                -- "sixel",
                 "--animate",
                 "off",
                 filepath,
