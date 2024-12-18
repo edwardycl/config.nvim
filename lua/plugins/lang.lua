@@ -7,7 +7,30 @@ return {
       load = {
         ["core.defaults"] = {},
         ["core.concealer"] = {},
+        ["core.dirman"] = {
+          config = {
+            workspaces = {
+              notes = "~/workspace/personal/notes",
+            },
+            default_workspace = "notes",
+          },
+        },
+        ["core.keybinds"] = {
+          config = {
+            default_keybinds = false,
+          },
+        },
       },
     },
+    keys = function()
+      return {
+        {
+          "<leader>on",
+          mode = { "n" },
+          "<Plug>(neorg.dirman.new-note)",
+          desc = "Neorg New Note",
+        },
+      }
+    end,
   },
 }

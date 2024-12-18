@@ -46,3 +46,5 @@ set_indent("python", 4)
 set_indent("rust", 4)
 set_indent("dockerfile", 4)
 set_indent("solidity", 4)
+
+vim.g.snacks_animate = false
