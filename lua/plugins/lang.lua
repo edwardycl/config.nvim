@@ -17,7 +17,7 @@ return {
         },
         ["core.keybinds"] = {
           config = {
-            default_keybinds = false,
+            -- default_keybinds = false,
           },
         },
       },
@@ -32,5 +32,10 @@ return {
         },
       }
     end,
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    -- TODO: migrate to fzf-lua
+    dependencies = { "nvim-telescope/telescope.nvim" },
   },
 }
